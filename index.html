@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join the LOOT Telegram Community</title>
+    <meta
+      name="description"
+      content="A modern landing page for joining a vibrant Telegram community with real value, fast updates, and helpful conversations."
+    />
+    <style>
+      :root {
+        --bg: #07111f;
+        --panel: rgba(255, 255, 255, 0.08);
+        --panel-strong: rgba(255, 255, 255, 0.12);
+        --text: #f7f8fc;
+        --muted: #a8b2c3;
+        --accent: #5ee7ff;
+        --accent-2: #8b5cf6;
+        --success: #2dd4bf;
+        --border: rgba(255, 255, 255, 0.14);
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(94, 231, 255, 0.18), transparent 28%),
+          linear-gradient(135deg, var(--bg), #101d33 55%, #0c1628);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 0;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #04101b;
+        box-shadow: 0 10px 24px rgba(94, 231, 255, 0.2);
+      }
+
+      .btn-secondary {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .hero {
+        padding: 1rem 0 4rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem 0 1rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.75rem;
+        border: 1px solid rgba(94, 231, 255, 0.28);
+        background: rgba(94, 231, 255, 0.1);
+        color: var(--accent);
+        border-radius: 999px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 4vw, 3.4rem);
+        line-height: 1.08;
+        margin: 0 0 1rem;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 1.05rem;
+        margin: 0 0 1.4rem;
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        color: var(--muted);
+      }
+
+      .stats strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.05rem;
+      }
+
+      .hero-card {
+        padding: 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .hero-card li {
+        display: flex;
+        gap: 0.55rem;
+        padding: 0.55rem 0;
+        color: var(--muted);
+      }
+
+      .hero-card li::before {
+        content: "✦";
+        color: var(--accent);
+      }
+
+      section {
+        padding: 1.2rem 0 3.2rem;
+      }
+
+      .section-title {
+        margin-bottom: 1.2rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.7rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .section-title p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1.2rem;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .card h3 {
+        margin: 0 0 0.45rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .alt-section {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 1.4rem;
+      }
+
+      .why-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(45, 212, 191, 0.12);
+        color: #9ef0e3;
+        font-size: 0.92rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .review {
+        padding: 1.1rem;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+      }
+
+      .review .stars {
+        color: #ffca3a;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.4rem;
+      }
+
+      .review p {
+        color: var(--muted);
+        margin: 0 0 0.45rem;
+      }
+
+      .review strong {
+        color: var(--text);
+      }
+
+      details {
+        padding: 1rem 1.1rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+      }
+
+      details + details {
+        margin-top: 0.7rem;
+      }
+
+      summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 600;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details p {
+        color: var(--muted);
+        margin: 0.65rem 0 0;
+      }
+
+      .cta-box {
+        text-align: center;
+        padding: 1.6rem;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        background: linear-gradient(90deg, rgba(94, 231, 255, 0.16), rgba(139, 92, 246, 0.16));
+      }
+
+      .live-update {
+        position: fixed;
+        left: 50%;
+        bottom: 1rem;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: min(92vw, 600px);
+        padding: 0.8rem 0.95rem;
+        border-radius: 16px;
+        border: 1px solid rgba(94, 231, 255, 0.22);
+        background: linear-gradient(135deg, rgba(7, 17, 31, 0.96), rgba(16, 29, 51, 0.95));
+        backdrop-filter: blur(14px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+      }
+
+      .live-update strong {
+        color: var(--text);
+      }
+
+      .popup-name {
+        color: #ffffff;
+        font-weight: 800;
+        text-shadow: 0 0 10px rgba(94, 231, 255, 0.25);
+      }
+
+      .live-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.42rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(45, 212, 191, 0.14);
+        color: #9ef0e3;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .live-dot {
+        width: 0.65rem;
+        height: 0.65rem;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7);
+        animation: pulse 1.8s infinite;
+        flex-shrink: 0;
+      }
+
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(45, 212, 191, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
+      }
+
+      footer {
+        padding: 0 0 2rem;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .cards-grid,
+        .reviews-grid,
+        .why-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar {
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero container">
+      <nav class="topbar">
+        <a class="brand" href="#top"><span>Sunny Bhai 👑</span></a>
+        <div class="nav-links">
+          <a href="#how">Kaise kaam karta hai</a>
+          <a href="#why">Kyun join karo</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid" id="top">
+        <div>
+          <div class="eyebrow">⚡ Real updates • Helpful community • Fast access</div>
+          <h1>Telegram join karo aur profit start karo!</h1>
+          <p>
+            Is channel mein join karke aapko daily fresh updates, smart ideas aur powerful opportunities milti hain. Yeh prediction channel hai jahan most predictions sahi nikalte hain, isliye log join karke profit bana rahe hain.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://t.me/recovery_market" target="_blank" rel="noreferrer">Join Telegram Abhi</a>
+            <a class="btn btn-secondary" href="#faq">FAQ Dekho</a>
+          </div>
+          <div class="stats">
+            <div><strong>10k+</strong> members</div>
+            <div><strong>24/7</strong> conversations</div>
+            <div><strong>4.9/5</strong> average rating</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Members ko kya milta hai?</h3>
+          <ul>
+            <li>Daily valuable updates aur latest opportunities</li>
+            <li>Community se quick help aur smart guidance</li>
+            <li>Exclusive chances jo early access mein milte hain</li>
+            <li>Clean aur useful conversations jahan aap seekh sakte ho</li>
+            <li>Deposit aur withdrawal ka process easy aur smooth hai</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="how">
+        <div class="section-title">
+          <h2>Kaise kaam karta hai?</h2>
+          <p>Join karna simple hai, aur yahan se value milna bhi easy hai. Bas ek baar join karo aur result dekho.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>1. Turant join karo</h3>
+            <p>Telegram button par click karo aur group mein aa jao — sirf kuch seconds mein.</p>
+          </article>
+          <article class="card">
+            <h3>2. Updates follow karo</h3>
+            <p>Daily posts, useful tips aur fresh discussions ko follow karo.</p>
+          </article>
+          <article class="card">
+            <h3>3. Active bano</h3>
+            <p>Questions pucho, ideas share karo aur us community ka part bano jo profit ke liye grow kar rahi hai.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="why" class="alt-section">
+        <div class="section-title">
+          <h2>Log kyun join karte hain?</h2>
+          <p>Yeh sirf updates ka channel nahi, balki prediction-based profit ka trusted place hai. Deposit, withdrawal aur profit ka system simple aur easy hai.</p>
+        </div>
+        <div class="why-list">
+          <div>
+            <div class="pill">✓ Fast updates</div>
+            <p>Members ko time par relevant info milti hai, jisse unka move smart hota hai aur profit ke chances badhte hain. Most predictions correct nikalte hain, isliye confidence banti hai.</p>
+          </div>
+          <div>
+            <div class="pill">✓ Helpful atmosphere</div>
+            <p>Yahan har conversation useful, friendly aur value-based hoti hai, aur logon ko clear guidance milti hai.</p>
+          </div>
+          <div>
+            <div class="pill">✓ Less spam</div>
+            <p>Thoughtful posts aur clear structure ke saath experience smooth aur productive rehta hai, aur deposit-withdrawal ka process bhi simple hai.</p>
+          </div>
+          <div>
+            <div class="pill">✓ Strong community</div>
+            <p>Yahan log value ke liye aate hain aur active community ke saath stay karte hain, taaki woh sahi prediction aur profit ke opportunities se connected rahein.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <div class="section-title">
+          <h2>Members kya kehte hain?</h2>
+          <p>In logon ka experience bata raha hai ki yeh channel sach mein value de raha hai.</p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Updates hamesha helpful hote hain aur community bohot supportive lagti hai.”</p>
+            <strong>— Sara M.</strong>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Main daily withdrawal receive karta hoon aur yeh channel mujhe consistent help de raha hai.”</p>
+            <strong>— Rahul S.</strong>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Main info ke liye join hua tha, aur ab toh yeh community mujhe profit ke opportunities bhi de rahi hai.”</p>
+            <strong>— Daniel K.</strong>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Clean, fast aur worth every minute hai. Aisi helpful group bohot rare milti hai.”</p>
+            <strong>— Nia R.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="section-title">
+          <h2>Frequently asked questions</h2>
+          <p>Join se pehle jo cheezein aapko jaanni hain, yahan sab clear hai.</p>
+        </div>
+        <details open>
+          <summary>Is the Telegram group free to join?</summary>
+          <p>Haan, join karna bilkul free hai. Aur experience simple, helpful aur welcoming hai.</p>
+        </details>
+        <details>
+          <summary>What kind of content is shared?</summary>
+          <p>Yahan updates, helpful insights, useful announcements aur engaging conversations milte hain jo real value dete hain.</p>
+        </details>
+        <details>
+          <summary>Do I need to be active to benefit?</summary>
+          <p>Nahi. Aap join karke padh sakte ho, observe kar sakte ho aur still value le sakte ho.</p>
+        </details>
+        <details>
+          <summary>How often are updates posted?</summary>
+          <p>Updates regularly share kiye jaate hain, aur community mein active interaction bhi rehta hai.</p>
+        </details>
+      </section>
+
+      <section class="cta-box">
+        <h2>Ready to join?</h2>
+        <p>Aaj hi join karo aur dekho kaise yeh prediction channel aapko profitable opportunities, easy deposit-withdrawal aur smart updates de raha hai.</p>
+        <a class="btn btn-primary" href="https://t.me/recovery_market" target="_blank" rel="noreferrer">Join the Community</a>
+      </section>
+
+      <section class="live-update" aria-label="Live join update">
+        <div>
+          <div id="popup-message">New members are joining every day. Be part of the next wave.</div>
+        </div>
+        <div class="live-pill">
+          <span class="live-dot"></span>
+          <span id="popup-status">Live now</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> LOOT Community. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const firstNames = ["Ava", "Liam", "Mia", "Noah", "Sophia", "Ethan", "Zara", "Owen", "Nora", "Kai"];
+      const lastNames = ["Clark", "Nguyen", "Patel", "Brooks", "Rossi", "Kim", "Ahmed", "Lopez", "Davis", "Santos"];
+
+      const popupMessage = document.getElementById("popup-message");
+      const popupStatus = document.getElementById("popup-status");
+
+      function randomName() {
+        const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+        const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+        return `${first} ${last}`;
+      }
+
+      function showRandomJoin() {
+        const name = randomName();
+        popupMessage.innerHTML = `<span class="popup-name">${name}</span> just joined`;
+        popupStatus.textContent = "Joined";
+      }
+
+      showRandomJoin();
+      setInterval(showRandomJoin, 2000 + Math.floor(Math.random() * 3000));
+    </script>
+  </body>
+</html>
+o
